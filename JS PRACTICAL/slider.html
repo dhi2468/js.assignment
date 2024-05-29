@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Slider</title>
+    <style>
+        body {
+            /* background-color: #a9d045; */
+            background-image: url(js.img);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-left: 450px;
+            font-size: 50px;
+            color: burlywood;
+        }
+
+        h3 {
+            margin-left: 600px;
+            font-size: 30px;
+            color: antiquewhite;
+
+        }
+
+        .slider-container {
+            width: 70%;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            flex: 0 0 calc(50% - 20px);
+            max-width: calc(50% - 20px);
+            margin-right: 20px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .prev,
+        .next {
+            margin: 70px 220px;
+            transform: translateY(-50%);
+            background-color: rgb(10, 175, 216);
+            color: black;
+            padding: 20px;
+            border: none;
+            z-index: 1;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple JavaScript Slider</h1>
+    <h3>created by dropinks</h3>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8fA%3D%3D"
+                    alt="Slide 1" />
+            </div>
+            <div class="slide">
+                <img src="https://plus.unsplash.com/premium_photo-1666726721652-a15e685e48a0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9yZXN0JTIwc3Vuc2V0fGVufDB8fDB8fHww"
+                    alt="Slide 2" />
+            </div>
+            <div class="slide">
+                <img src="https://plus.unsplash.com/premium_photo-1681422570054-9ae5b8b03e46?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwZGF5fGVufDB8fDB8fHww"
+                    alt="Slide 3" />
+            </div>
+            <div class="slide">
+                <img src="https://plus.unsplash.com/premium_photo-1663036587134-448a46ea3050?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwd29ybGR8ZW58MHx8MHx8fDA%3D"
+                    alt="Slide 4" />
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D"
+                    alt="Slide 5" />
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1610552050890-fe99536c2615?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFuZHNjYXBlJTIwbmF0dXJlfGVufDB8fDB8fHww"
+                    alt="Slide 6" />
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1622042795081-c27996872dbc?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGdyZWVuJTIwbGFuZHNjYXBlfGVufDB8fDB8fHww"
+                    alt="Slide 7" />
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1590273466070-40c466b4432d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGdyZWVuJTIwbmF0dXJlfGVufDB8fDB8fHww"
+                    alt="Slide 8" />
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1618588507085-c79565432917?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwbmF0dXJlfGVufDB8fDB8fHww"
+                    alt="Slide 9" />
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1611865879393-7826234b17f3?q=80&w=2015&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Slide 10" />
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">❮</button>
+        <button class="next" onclick="moveSlide(1)">❯</button>
+    </div>
+</body>
+<script>
+    let slideIndex = 0;
+
+    function showSlide(index) {
+        const slides = document.querySelectorAll(".slide");
+        if (index >= slides.length) {
+            slideIndex = 0;
+        } else if (index < 0) {
+            slideIndex = slides.length - 1;
+        }
+        slides.forEach((slide) => {
+            slide.style.transform = `translateX(-${slideIndex * 100}%)`;
+        });
+    }
+
+    function moveSlide(n) {
+        slideIndex += n;
+        showSlide(slideIndex);
+    }
+
+    showSlide(slideIndex);
+</script>
+
+</html>
