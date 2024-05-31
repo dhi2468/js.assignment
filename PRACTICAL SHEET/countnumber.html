@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counting number</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(js.img3.jpeg);
+            height: 2000px;
+        }
+
+        #counter {
+            position: fixed;
+            top: 50%;
+            left: 10px;
+            font-size: 50px;
+            background-color: lightgrey;
+            color: purple;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="counter">0</div>
+
+    <script>
+        let count = 0;
+        const counterElement = document.getElementById('counter');
+
+        function updateCounter() {
+            counterElement.textContent = count;
+        }
+
+        function handleScroll() {
+            count++;
+            updateCounter();
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        updateCounter();
+    </script>
+</body>
+
+</html>

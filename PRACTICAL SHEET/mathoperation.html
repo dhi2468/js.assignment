@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>math operation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-left: 50px;
+            padding: 300px;
+            height: 100vh;
+        }
+        
+        .calc {
+            border: 2px solid black;
+            padding: 20px;
+            width: 700px;
+            background-color: lightcoral;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            margin: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 150px;
+        }
+
+        /* Button styles */
+        button {
+            padding: 20px 40px;
+            margin: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: darkgray;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        /* Button hover styles */
+        button:hover {
+            background-color: lightcoral;
+        }
+
+        /* Result paragraph styles */
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: right;
+            color: #c00f15;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calc">
+        <h1>Math Operations</h1>
+        <br />
+        <label for="num1">Enter Number 1</label>
+        <input type="text" id="num1" /> <br>
+        <br>
+        <br>
+        <label for="num2">Enter Number 2</label>
+        <input type="text" id="num2" />
+
+        <div>
+            <button id="add">+</button>
+            <button id="subtract">-</button>
+            <button id="multiply">*</button>
+            <br>
+            <button id="divide">/</button>
+            <button id="modulus">%</button>
+        </div>
+        <p id="result"></p>
+    </div>
+</body>
+<script>
+    const num1Input = document.getElementById("num1");
+    const num2Input = document.getElementById("num2");
+    const addButton = document.getElementById("add");
+    const subtractButton = document.getElementById("subtract");
+    const multiplyButton = document.getElementById("multiply");
+    const divideButton = document.getElementById("divide");
+    const modulusButton = document.getElementById("modulus");
+    const resultParagraph = document.getElementById("result");
+
+    function add() {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        const result = num1 + num2;
+        resultParagraph.textContent = `Result: ${result}`;
+    }
+
+    function subtract() {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        const result = num1 - num2;
+        resultParagraph.textContent = `Result: ${result}`;
+    }
+
+    function multiply() {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        const result = num1 * num2;
+        resultParagraph.textContent = `Result: ${result}`;
+    }
+
+    function divide() {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        if (num2 !== 0) {
+            const result = num1 / num2;
+            resultParagraph.textContent = `Result: ${result}`;
+        } else {
+            resultParagraph.textContent = "Cannot divide by zero";
+        }
+    }
+
+    function modulus() {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        if (num2 !== 0) {
+            const result = num1 % num2;
+            resultParagraph.textContent = `Result: ${result}`;
+        } else {
+            resultParagraph.textContent = "Cannot divide by zero";
+        }
+    }
+
+    addButton.addEventListener("click", add);
+    subtractButton.addEventListener("click", subtract);
+    multiplyButton.addEventListener("click", multiply);
+    divideButton.addEventListener("click", divide);
+    modulusButton.addEventListener("click", modulus);
+</script>
+
+</html>

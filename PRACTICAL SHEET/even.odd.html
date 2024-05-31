@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Even or Odd number Checker</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .container {
+            border: 1px black solid;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: lightcyan;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>check inputed number odd or even</h1>
+        <label for="enter a number">Enter Any Number:</label>
+        <input type="text" id="numberInput" placeholder="Enter a number" />
+        <br />
+        <button onclick="checkEvenOrOdd()">Check</button>
+        <div class="result" id="result">Answer is:</div>
+    </div>
+
+    <script>
+        function checkEvenOrOdd() {
+            const number = document.getElementById('numberInput').value;
+            const resultDiv = document.getElementById('result');
+
+            if (number === '') {
+                resultDiv.textContent = 'Please enter a number.';
+            } else {
+                const parsedNumber = parseInt(number, 10);
+
+                if (isNaN(parsedNumber)) {
+                    resultDiv.textContent = 'Please enter a valid number.';
+                } else if (parsedNumber % 2 === 0) {
+                    resultDiv.textContent = `${parsedNumber} Number is even.`;
+                } else {
+                    resultDiv.textContent = `${parsedNumber} Number is odd.`;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

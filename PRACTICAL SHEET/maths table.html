@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maths table</title>
+    <style>
+        body {
+            justify-content: center;
+            align-items: top;
+            height: 100vh;
+            width: 100%;
+            margin: 0;
+        }
+
+        .container {
+            background: rgba(162, 223, 235, 0.844);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 150px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            margin-left: 8px;
+            border: none;
+            background-color: #b67ce9;
+            color: black;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>MATHS TABLE</h1>
+        <form id="tableForm">
+            <label for="numberInput">Enter a number:</label>
+            <input type="text" id="numberInput" required /> <br>
+            <button type="submit">DISPLAY</button>
+        </form>
+        <div id="tableContainer"></div>
+    </div>
+</body>
+<script>
+    document.getElementById("tableForm")
+        .addEventListener("submit", function (event) {
+            event.preventDefault();
+            const number = parseInt(document.getElementById("numberInput").value);
+            generateTable(number);
+        });
+
+    function generateTable(number) {
+        const tableContainer = document.getElementById("tableContainer");
+        tableContainer.innerHTML = "";
+
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        const tbody = document.createElement("tbody");
+
+        const headerRow = document.createElement("tr");
+        const headerCell = document.createElement("th");
+        headerCell.textContent = `Multiplication Table for ${number}`;
+        headerCell.colSpan = 2;
+        headerRow.appendChild(headerCell);
+        thead.appendChild(headerRow);
+
+        for (let i = 1; i <= 10; i++) {
+            const row = document.createElement("tr");
+            const cell1 = document.createElement("td");
+            const cell2 = document.createElement("td");
+
+            cell1.textContent = `${number} x ${i}`;
+            cell2.textContent = number * i;
+
+            row.appendChild(cell1);
+            row.appendChild(cell2);
+            tbody.appendChild(row);
+        }
+
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        tableContainer.appendChild(table);
+    }
+</script>
+
+</html>

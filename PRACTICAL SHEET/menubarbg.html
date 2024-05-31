@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Menubar bg</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 2000px;
+        }
+
+        .navbar {
+            background-color: pink;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar" id="navbar">
+        <h1>Dhiraj</h1>
+
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+                menuToggleBtn.innerHTML = '☰ Menu';
+            } else {
+                menu.style.display = 'flex';
+                menuToggleBtn.innerHTML = '✖ Close';
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            const menu = document.getElementById('menu');
+            const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+            if (window.innerWidth > 600) {
+                menu.style.display = 'flex';
+                menuToggleBtn.style.display = 'none';
+            } else {
+                menu.style.display = 'none';
+                menuToggleBtn.style.display = 'block';
+                menuToggleBtn.innerHTML = '☰ Menu';
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY === 0) {
+                navbar.style.backgroundColor = '#e36b8c';
+            } else {
+                navbar.style.backgroundColor = '#333';
+            }
+        });
+
+        window.dispatchEvent(new Event('resize'));
+    </script>
+</body>
+
+</html>

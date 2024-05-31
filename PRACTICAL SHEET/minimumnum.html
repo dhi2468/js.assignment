@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimum Number</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h2 {
+            text-align: center;
+        }
+        .container {
+            text-align: center;
+            padding: 10px;
+            background-image: url(js.img1.avif);
+            color: white;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Enter Any Two Number to Display Which Number is Minimum From them</h2>
+        <label for="num1">1st Number</label>
+        <input type="text" id="num1" /><br />
+        <label for="num2">2nd Number</label>
+        <input type="text" id="num2" /><br />
+        <button onclick="findMinimum()">Display</button> <br/>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function findMinimum() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            var minimum = Math.min(num1, num2);
+
+            document.getElementById("result").innerHTML =
+                "Minimum number: " + minimum;
+        }
+    </script>
+</body>
+
+</html>
